@@ -1,0 +1,17 @@
+{
+  "name": "ubarter-matching",
+  "description": "matching algorithms for uBarter project",
+  "main": "public/index.html",
+  "authors": [
+    "SeihakRithy Muth"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Rithy58/ubarter-matching",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
