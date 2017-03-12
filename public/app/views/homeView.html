@@ -1,3 +1,42 @@
 <md-toolbar>
-<h2>Top Navigation Bar</h2>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Menu">
+      <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+    </md-button>
+
+    <h2 layout-padding>uBarter</h2>
+
+    <md-autocomplete
+      flex
+      md-selected-item="selectedItem"
+      md-items="item in items"
+      md-search-text="searchText"
+      md-item-text="item.display"
+      placeholder="Search for item">
+      <md-item-template>
+        <span>{{item.display}}</span>
+      </md-item-template>
+      <md-not-found>
+        Search for item
+      </md-not-found>
+    </md-autocomplete>
+
+    <md-button class="md-icon-button" aria-label="Account">
+      <md-icon md-svg-icon="img/icons/account_circle.svg"></md-icon>
+    </md-button>
+  </div>
 </md-toolbar>
+
+<div layout="row">
+  <md-content flex="75" layout-padding>
+    <p>
+      Item Listing
+    </p>
+  </md-content>
+
+  <md-content flex layout-padding>
+    <p>
+      User Listing
+    </p>
+  </md-content>
+</div>
