@@ -1,6 +1,6 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Menu">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleSidenav()">
       <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
     </md-button>
 
@@ -26,6 +26,22 @@
     </md-button>
   </div>
 </md-toolbar>
+
+<md-sidenav class="md-sidenav-left" md-component-id="sidenav">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 flex>Navigation</h2>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <p>
+      <ul>
+        <li>Home</li>
+        <li>Create</li>
+      </ul>
+    </p>
+  </md-content>
+</md-sidenav>
 
 <div layout="row">
   <md-content flex="75" layout-padding>
