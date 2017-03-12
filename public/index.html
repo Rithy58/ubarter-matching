@@ -4,11 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Index Page</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>uBarter</title>
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
 </head>
 
-<body>
-    Hello world!
+<body ng-app="app">
+    <div ng-view>
+    </div>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/homeController.js"></script>
 </body>
 
 </html>
