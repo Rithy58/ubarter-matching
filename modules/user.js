@@ -2,18 +2,23 @@ var db = require('./db.js');
 var crypto = require('crypto');
 var user = {};
 
-user.createUser = function(username, password) {
+user.createUser = function(username, password, cb) {
   var salt = crypto.randomBytes(16).toString('hex');
-  var hash = crypto.pbkdf2Sync(password, salt, 1000, 64).toString('hex');
+  var hash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha1').toString('hex');
   var database = db.getDatabase();
   database.collection('users').insertOne({
     _id: username,
     salt: salt,
     hash: hash
+  }, function(err, result) {
+    if(err) {
+      console.log(err);
+    }
+    cb(result);
   });
 };
 
-user.checkPassword = function(username, password) {
+user.checkPassword = function(username, password, cb) {
   var database = db.getDatabase();
   database.collection('users').findOne({
     _id: username
@@ -21,8 +26,12 @@ user.checkPassword = function(username, password) {
     if(err) {
       console.log(err);
     }
-    var hash = crypto.pbkdf2Sync(password, doc.salt, 1000, 64).toString('hex');
-    return doc.hash == hash;
+    if(doc) {
+      var hash = crypto.pbkdf2Sync(password, doc.salt, 1000, 64, 'sha1').toString('hex');
+      cb(doc.hash == hash);
+    } else {
+      cb(false);
+    }
   });
 };
 

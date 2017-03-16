@@ -20,8 +20,12 @@
   },
   "homepage": "https://github.com/Rithy58/ubarter-matching#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "bower": "^1.8.0",
     "express": "^4.14.1",
-    "mongodb": "^2.2.24"
+    "jsonwebtoken": "^7.3.0",
+    "mongodb": "^2.2.24",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
