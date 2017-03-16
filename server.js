@@ -20,7 +20,7 @@ app.get('/api/', function(req, res) {
 app.post('/api/auth/login',
   auth.authenticate('local', { session: false }),
   function(req, res) {
-    res.json({ id: req.user, username: req.username });
+    res.json({ username: req.user });
   }
 );
 

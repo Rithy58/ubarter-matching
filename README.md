@@ -11,3 +11,4 @@ This project is part of the uBarter backend, specifically the matching algorithm
   + Encrypted Password
 + Autocomplete Search
 + Realtime Item Listing
++ RESTful API
