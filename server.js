@@ -20,13 +20,15 @@ app.get('/api/', function(req, res) {
 app.post('/api/auth/login',
   auth.authenticate('local', { session: false }),
   function(req, res) {
-    res.json({ username: req.user });
+    var token = user.generateJWT(req.body.username);
+    res.json({token: token});
   }
 );
 
 app.post('/api/auth/register', function(req, res) {
   user.createUser(req.body.username, req.body.password, function(result) {
-    res.json(result);
+    var token = user.generateJWT(req.body.username);
+    res.json({token: token});
   });
 });
 

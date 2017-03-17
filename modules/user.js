@@ -1,5 +1,6 @@
 var db = require('./db.js');
 var crypto = require('crypto');
+var jwt = require('jsonwebtoken');
 var user = {};
 
 user.createUser = function(username, password, cb) {
@@ -33,6 +34,16 @@ user.checkPassword = function(username, password, cb) {
       cb(false);
     }
   });
+};
+
+user.generateJWT = function(username) {
+  var expiry = new Date();
+  expiry.setDate(expiry.getDate() + 7);
+
+  return jwt.sign({
+    username: username,
+    exp: parseInt(expiry.getTime() / 1000),
+  }, process.env.JWT_SECRET);
 };
 
 module.exports = user;

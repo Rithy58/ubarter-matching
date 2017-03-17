@@ -7,7 +7,7 @@ auth.use(new Strategy(
     //console.log(user.checkPassword(username, password));
     user.checkPassword(username, password, function(check) {
       if(check) {
-        return cb(null, username);
+        return cb(null, {username: username});
       } else {
         return cb(null, false, {message: 'Incorrect Login Info'});
       }
