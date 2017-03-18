@@ -1,5 +1,5 @@
-<div layout="row">
-  <md-content flex="70" layout-padding>
+<div layout="row" layout-xs="column">
+  <md-content layout-padding>
     <md-card>
       <md-card-title>
         <md-card-title-media>
@@ -22,7 +22,7 @@
     </md-card>
   </md-content>
 
-  <md-content flex layout-padding>
+  <md-content layout-padding>
     <md-card ng-show="loggedIn">
       <md-card-header>
         <md-card-avatar>
@@ -42,7 +42,7 @@
         <span class="md-headline">Log in</span>
       </md-card-title>
       <md-card-content layout-padding>
-        <form ng-submit="login()">
+        <form ng-submit="login()" layout="column">
           <md-input-container>
             <label>Username</label>
             <input ng-model="user.username" type="text"/>
