@@ -1,0 +1,20 @@
+<md-dialog aria-label="Login">
+  <md-card>
+    <md-card-title>
+      <span class="md-headline">Log in</span>
+    </md-card-title>
+    <md-card-content layout-padding>
+      <form ng-submit="login()">
+        <md-input-container>
+          <label>Username</label>
+          <input ng-model="user.username" type="text"/>
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input ng-model="user.password" type="password"/>
+        </md-input-container>
+        <md-button class="md-primary" type="submit">Log in</md-button>
+      </form>
+    </md-card-content>
+  </md-card>
+</md-dialog>

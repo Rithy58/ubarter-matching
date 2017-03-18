@@ -16,4 +16,5 @@ This project is part of the uBarter backend, specifically the matching algorithm
 ## TODO
 + Error Handling
 + Check for username duplication
-+ Send message for incorrect username and/or password
++ Handle incorrect login info
+ + Send message for incorrect username and/or password

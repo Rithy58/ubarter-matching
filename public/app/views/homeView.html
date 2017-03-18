@@ -23,18 +23,36 @@
   </md-content>
 
   <md-content flex layout-padding>
-    <md-card>
+    <md-card ng-show="loggedIn">
       <md-card-header>
         <md-card-avatar>
           <img class="md-user-avatar" src="img/user_avatar.png" />
         </md-card-avatar>
         <md-card-header-text>
-          <span class="md-title">Rithy58</span>
-          <span class="md-subhead">UMass '17</span>
+          <span class="md-title">{{ username }}</span>
+          <span class="md-subhead">Lowell, MA</span>
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
         <p>Either a list or more cards</p>
+      </md-card-content>
+    </md-card>
+    <md-card ng-hide="loggedIn">
+      <md-card-title>
+        <span class="md-headline">Log in</span>
+      </md-card-title>
+      <md-card-content layout-padding>
+        <form ng-submit="login()">
+          <md-input-container>
+            <label>Username</label>
+            <input ng-model="user.username" type="text"/>
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input ng-model="user.password" type="password"/>
+          </md-input-container>
+          <md-button class="md-primary" type="submit">Log in</md-button>
+        </form>
       </md-card-content>
     </md-card>
   </md-content>

@@ -36,8 +36,14 @@
 
           <span flex></span>
 
-          <md-button class="md-icon-button" aria-label="Account">
-            <md-icon md-svg-icon="img/icons/account_circle.svg"></md-icon>
+          <md-button class="md-raised" aria-label="Login" ng-hide="loggedIn" id="loginButton" ng-click="showLogin($event)">
+            Login
+          </md-button>
+          <md-button class="md-raised" aria-label="Register" ng-hide="loggedIn" id="registerButton" ng-click="showRegister($event)">
+            Register
+          </md-button>
+          <md-button class="md-raised" aria-label="Logout" ng-show="loggedIn" ng-click="logout()">
+            Logout
           </md-button>
         </div>
       </md-toolbar>
@@ -50,13 +56,18 @@
         </md-toolbar>
         <md-content>
           <section layout="column" layout-align="center center">
-            <md-button class="md-primary" ng-href="#/">
+            <md-button class="md-primary" ng-href="#/" ng-click="toggleSidenav()">
               Home
             </md-button>
-            <md-button class="md-primary" ng-href="#/create">
-              Create Listing
-            </md-button>
+
+            <div ng-show="loggedIn">
+              <md-button class="md-primary" ng-href="#/create" ng-click="toggleSidenav()">
+                Create Listing
+              </md-button>
+            </div>
+
             <br />
+
             <md-button class="md-warn" ng-click="toggleSidenav()">
               Close
             </md-button>
@@ -76,9 +87,14 @@
     <script src="/bower_components/angular-material/angular-material.js"></script>
 
     <script src="/app/app.js"></script>
+
+    <script src="/app/services/authService.js"></script>
+
     <script src="/app/controllers/indexController.js"></script>
     <script src="/app/controllers/homeController.js"></script>
     <script src="/app/controllers/createController.js"></script>
+    <script src="/app/controllers/loginController.js"></script>
+    <script src="/app/controllers/registerController.js"></script>
 </body>
 
 </html>
