@@ -44,7 +44,7 @@ app.post('/api/auth/register', function(req, res) {
 });
 
 app.post('/api/listing/create', jwt, function(req, res) {
-  listing.createListing(req.jwt.username, {item: test, has: item2}, function(result){
+  listing.createListing(req.jwt.username, {item: "test", has: 2}, function(result){
     res.json(result);
   });
   //res.json({token: req.jwt});
