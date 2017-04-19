@@ -6,7 +6,7 @@ listing.createListing = function(username, listing, cb) {
   var ObjectID = require('mongodb').ObjectID;
   var id = new ObjectID();
   database.collection('listings').insertOne({
-    _id: id,
+    _id: id.$oid,
     owner: username,
     listing: listing
   }, function(err, result) {
@@ -17,7 +17,7 @@ listing.createListing = function(username, listing, cb) {
       _id: username
     }, {
       $push: {
-        listing: id
+        listing: id.$oid
       }
     }, function(err, result) {
       if(err) {
