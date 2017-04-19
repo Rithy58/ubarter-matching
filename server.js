@@ -8,6 +8,7 @@ var jwt = require('express-jwt')({
 var db = require('./modules/db.js');
 var auth = require('./modules/auth.js');
 var user = require('./modules/user.js');
+var listing = require('./modules/listing.js');
 
 app.set('port', process.env.PORT);
 app.use(express.static('./public/'));
@@ -43,6 +44,7 @@ app.post('/api/auth/register', function(req, res) {
 });
 
 app.post('/api/listing/create', jwt, function(req, res) {
+  //listing.createListing(req.jwt)
   res.json({token: req.jwt});
 });
 
